@@ -1,0 +1,6 @@
+﻿  源.cpp
+D:\CPP_Code\快速排序\yxca模板\源.cpp(32,11): error C2131: 表达式的计算结果不是常数
+D:\CPP_Code\快速排序\yxca模板\源.cpp(32,11): message : 因读取超过生命周期的变量而失败
+D:\CPP_Code\快速排序\yxca模板\源.cpp(32,11): message : 请参见“n”的用法
+D:\CPP_Code\快速排序\yxca模板\源.cpp(39,16): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“int [n]”
+D:\CPP_Code\快速排序\yxca模板\源.cpp(39,16): warning C4313: "printf": 格式字符串中的 "%d" 与类型为 "int [n]" 的参数 1 冲突
