@@ -139,9 +139,9 @@ int hitBoard()
 int hitMap()
 {
 	//横排数列 row行 col列  5行8列
-	int col = (ball.x-ball.r) % 100;//圆心x坐标 列数
-	int row = (ball.y-ball.r) / 25;//圆心纵坐标-半径 行数
-	if (col <= 8 && row <= 5 &&a[row][col] != 0 )
+	int col = (ball.x-ball.r) / 100;//圆心x坐标 列数
+	int row = ball.y / 25;//圆心纵坐标-半径 行数
+	if (col < 8 && row < 5 && a[row][col] != 0 )
 	{
 		a[row][col] = 0;
 		return 1;
