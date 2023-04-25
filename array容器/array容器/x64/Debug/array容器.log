@@ -1,0 +1,3 @@
+﻿  mian.cpp
+D:\CPP_Code\array容器\array容器\mian.cpp(16,17): warning C4101: “myArray”: 未引用的局部变量
+  array容器.vcxproj -> D:\CPP_Code\array容器\x64\Debug\array容器.exe
