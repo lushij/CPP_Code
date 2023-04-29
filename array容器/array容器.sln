@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "array容器", "array容器\array容器.vcxproj", "{CF675430-2CA5-4576-833E-9E3A6C99AE5E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "比赛", "比赛\比赛.vcxproj", "{86AD3CAE-F33D-4EA1-9C34-FB1F4DA783AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{CF675430-2CA5-4576-833E-9E3A6C99AE5E}.Release|x64.Build.0 = Release|x64
 		{CF675430-2CA5-4576-833E-9E3A6C99AE5E}.Release|x86.ActiveCfg = Release|Win32
 		{CF675430-2CA5-4576-833E-9E3A6C99AE5E}.Release|x86.Build.0 = Release|Win32
+		{86AD3CAE-F33D-4EA1-9C34-FB1F4DA783AE}.Debug|x64.ActiveCfg = Debug|x64
+		{86AD3CAE-F33D-4EA1-9C34-FB1F4DA783AE}.Debug|x64.Build.0 = Debug|x64
+		{86AD3CAE-F33D-4EA1-9C34-FB1F4DA783AE}.Debug|x86.ActiveCfg = Debug|Win32
+		{86AD3CAE-F33D-4EA1-9C34-FB1F4DA783AE}.Debug|x86.Build.0 = Debug|Win32
+		{86AD3CAE-F33D-4EA1-9C34-FB1F4DA783AE}.Release|x64.ActiveCfg = Release|x64
+		{86AD3CAE-F33D-4EA1-9C34-FB1F4DA783AE}.Release|x64.Build.0 = Release|x64
+		{86AD3CAE-F33D-4EA1-9C34-FB1F4DA783AE}.Release|x86.ActiveCfg = Release|Win32
+		{86AD3CAE-F33D-4EA1-9C34-FB1F4DA783AE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
