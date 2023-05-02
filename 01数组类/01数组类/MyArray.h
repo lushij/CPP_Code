@@ -4,9 +4,9 @@ using namespace std;
 class MyArray
 {
 public:
-	MyArray();
-	MyArray(const MyArray &arr);
-	MyArray(int capacity, int val = 0);
+	MyArray();//ππ‘Ï 
+	MyArray(const MyArray &arr);//øΩ±¥
+	MyArray(int capacity, int val = 0);//
 	~MyArray();
 
 	//Õ∑≤Â

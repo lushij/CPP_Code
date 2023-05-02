@@ -30,11 +30,13 @@ MyArray::MyArray(const MyArray &arr)
 	//1.ÉêÇë¿Õ¼ä
 	this->pArray = new int[arr.mCapacity];
 	//2.¿½±´Êý¾Ý
-	for (int i = 0; i < this->mSize; i++)
+	for (int i = 0; i < this->mCapacity; i++)
 	{
 		this->pArray[i] = arr.pArray[i];
 	}
 }
+
+
 MyArray::MyArray(int capacity, int val)
 {
 	this->mCapacity = capacity;

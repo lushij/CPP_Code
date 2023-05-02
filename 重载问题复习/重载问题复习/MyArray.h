@@ -4,12 +4,13 @@
 #include<string>
 using namespace std;
 
+
+//数组类模拟
 class MyArray
 {
 public:
 	MyArray();
 	MyArray(const MyArray& arr);
-	MyArray(int capacity, int val = 0);
 	~MyArray();
 
 	//头插
@@ -24,9 +25,9 @@ public:
 	int Size();
 	//获取数组容量
 	int Capacity();
-	//指定位置插入yuans 
+	//指定位置插入元素
 	void Insert(int pos, int val);
-	//获取指定位置的值
+	//获取指定下标的值
 	int& Get(int pos);
 	//在指定位置修改值
 	void Set(int pos, int val);
