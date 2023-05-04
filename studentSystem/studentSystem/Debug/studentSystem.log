@@ -1,0 +1,7 @@
+﻿  studentSystem.c
+C:\Users\team\Desktop\2021_09_12 学生管理系统\studentSystem\studentSystem\studentSystem.c(105,13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\team\Desktop\2021_09_12 学生管理系统\studentSystem\studentSystem\studentSystem.c(108,8): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\team\Desktop\2021_09_12 学生管理系统\studentSystem\studentSystem\studentSystem.c(113,2): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\team\Desktop\2021_09_12 学生管理系统\studentSystem\studentSystem\studentSystem.c(114,9): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\team\Desktop\2021_09_12 学生管理系统\studentSystem\studentSystem\studentSystem.c(124,13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  studentSystem.vcxproj -> C:\Users\team\Desktop\2021_09_12 学生管理系统\studentSystem\Debug\studentSystem.exe
