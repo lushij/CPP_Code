@@ -5,16 +5,17 @@
 #include<graphics.h>
 #include<ctime>
 using namespace std;
-
-int a[8][8] = { 0 };
+const int Row = 3;//行数
+const int Col = 5;
+int a[Row][Col];
 //初始化地图
 void initMap()
 {
 	int i = 0;
 	int j = 0;
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < Row; i++)
 	{
-		for (j = 0; j < 8; j++)
+		for (j = 0; j < Col; j++)
 		{
 			a[i][j] = rand() % 3 + 1;
 		}
@@ -28,12 +29,14 @@ void drawMap()
 	int j = 0;
 	setlinestyle(PS_SOLID, 2);
 	setlinecolor(BLACK);
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < Row; i++)
 	{
-		for (j = 0; j < 8; j++)
+		for (j = 0; j <Col ; j++)
 		{
-			int x = i * 100;
-			int y = j * 25;
+			printf("(%d %d)\n", i, j);
+			int x = j * 100;
+			int y = i * 25;
+			printf("(%d %d)\n", x, y);
 			switch (a[i][j])
 			{
 			case 0:
@@ -138,16 +141,21 @@ int hitBoard()
 //击打砖块
 int hitMap()
 {
-	//横排数列 row行 col列  5行8列
-	int col = (ball.x-ball.r) / 100;//圆心x坐标 列数
-	int row = ball.y / 25;//圆心纵坐标-半径 行数
-	if (col < 8 && row < 5 && a[row][col] != 0 )
+	//横排数列 row行 col列  3行5列
+	int col =ball.x / 100;//圆心x坐标 列数
+	int row = (ball.y-ball.r) / 25;//圆心纵坐标-半径 行
+	/*printf("(%d %d)\n", ball.x, ball.y);
+	printf("(%d %d)\n", row, col);*/
+	if (row < Row && col < Col && a[row][col] != 0 )
 	{
+		/*printf("(%d %d)\n", row, col);*/
 		a[row][col] = 0;
 		return 1;
 	}
 	return 0;
 }
+
+
 void drawBall()
 {
 	setfillcolor(ball.color);
@@ -155,7 +163,7 @@ void drawBall()
 }
 void moveBall()
 {
-	if (ball.x+ball.r >= 800 || ball.x - ball.r <= 0)
+	if (ball.x+ball.r >= 500 || ball.x - ball.r <= 0)
 	{
 		ball.dx = -ball.dx;
 		
@@ -175,11 +183,12 @@ int  gameOver()
 	}
 	return 0;
 }
+
 int winGame()
 {
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < Row; i++)
 	{
-		for (int j = 0; j < 8; j++)
+		for (int j = 0; j < Col; j++)
 		{
 			if (a[i][j] != 0)
 			{
@@ -192,18 +201,27 @@ int winGame()
 int main()
 {
 	//句柄 HWND
-	HWND hwnd = initgraph(800, 600);
+	HWND hwnd = initgraph(500, 500,1);
+	
+	
+	
 	while (1)
 	{
-		creatBoard(100, 600 - 25, 660, 25, WHITE, 5);
-		creatBall(200, 500, 15, YELLOW, 1, -1);
-		srand((unsigned int)time(NULL));
 		initMap();
+		creatBoard(0, 500 - 25, 500, 25, WHITE, 3);
+		creatBall(100, 300, 15, YELLOW, 1, -1);
+		srand((unsigned int)time(NULL));
 		while (1)
 		{
+			
 			cleardevice();
 			BeginBatchDraw();
 			drawMap();
+			if (winGame())
+			{
+				MessageBox(hwnd, "游戏结束", "wind game", MB_OK);
+				break;
+			}
 			drawBoard();
 			keyDown();
 			drawBall();
@@ -214,13 +232,11 @@ int main()
 				MessageBox(hwnd, "是否继续", "lose game", MB_OK);
 				break;
 			}
-			if (winGame())
-			{
-				MessageBox(hwnd, "游戏结束", "wind game", MB_OK);
-				break;
-			}
+
+			
 			FlushBatchDraw();
 		}
+		
 		EndBatchDraw();
 	}
 	closegraph();
