@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "排序", "排序\排序.vcxproj", "{A0A10930-D19A-4E4B-9027-5EBECA042EAF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "交换法快排原理", "交换法快排原理\交换法快排原理.vcxproj", "{5980E990-D5EA-4AD0-8A97-9CBFA1D0513B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0A10930-D19A-4E4B-9027-5EBECA042EAF}.Debug|x64.ActiveCfg = Debug|x64
+		{A0A10930-D19A-4E4B-9027-5EBECA042EAF}.Debug|x64.Build.0 = Debug|x64
+		{A0A10930-D19A-4E4B-9027-5EBECA042EAF}.Debug|x86.ActiveCfg = Debug|Win32
+		{A0A10930-D19A-4E4B-9027-5EBECA042EAF}.Debug|x86.Build.0 = Debug|Win32
+		{A0A10930-D19A-4E4B-9027-5EBECA042EAF}.Release|x64.ActiveCfg = Release|x64
+		{A0A10930-D19A-4E4B-9027-5EBECA042EAF}.Release|x64.Build.0 = Release|x64
+		{A0A10930-D19A-4E4B-9027-5EBECA042EAF}.Release|x86.ActiveCfg = Release|Win32
+		{A0A10930-D19A-4E4B-9027-5EBECA042EAF}.Release|x86.Build.0 = Release|Win32
+		{5980E990-D5EA-4AD0-8A97-9CBFA1D0513B}.Debug|x64.ActiveCfg = Debug|x64
+		{5980E990-D5EA-4AD0-8A97-9CBFA1D0513B}.Debug|x64.Build.0 = Debug|x64
+		{5980E990-D5EA-4AD0-8A97-9CBFA1D0513B}.Debug|x86.ActiveCfg = Debug|Win32
+		{5980E990-D5EA-4AD0-8A97-9CBFA1D0513B}.Debug|x86.Build.0 = Debug|Win32
+		{5980E990-D5EA-4AD0-8A97-9CBFA1D0513B}.Release|x64.ActiveCfg = Release|x64
+		{5980E990-D5EA-4AD0-8A97-9CBFA1D0513B}.Release|x64.Build.0 = Release|x64
+		{5980E990-D5EA-4AD0-8A97-9CBFA1D0513B}.Release|x86.ActiveCfg = Release|Win32
+		{5980E990-D5EA-4AD0-8A97-9CBFA1D0513B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {180C9060-3B2A-455D-815C-F7E3850CED7D}
+	EndGlobalSection
+EndGlobal
