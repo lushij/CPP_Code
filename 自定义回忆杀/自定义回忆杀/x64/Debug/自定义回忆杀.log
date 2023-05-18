@@ -1,0 +1,4 @@
+﻿  回忆杀.cpp
+D:\CPP_Code\自定义回忆杀\自定义回忆杀\回忆杀.cpp(141,16): warning C4002: 类函数宏的调用“RGB”参数过多
+D:\CPP_Code\自定义回忆杀\自定义回忆杀\回忆杀.cpp(151,17): warning C4002: 类函数宏的调用“RGB”参数过多
+  自定义回忆杀.vcxproj -> D:\CPP_Code\自定义回忆杀\x64\Debug\自定义回忆杀.exe
