@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\CPP_Code\流星雨\流星雨\main.cpp(60,15): warning C4002: 类函数宏的调用“RGB”参数过多
+  流星雨.vcxproj -> D:\CPP_Code\流星雨\x64\Debug\流星雨.exe
