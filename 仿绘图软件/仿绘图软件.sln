@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "仿绘图软件", "仿绘图软件\仿绘图软件.vcxproj", "{213B37B5-63A1-4F7E-931A-787EA232DA21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{213B37B5-63A1-4F7E-931A-787EA232DA21}.Debug|x64.ActiveCfg = Debug|x64
+		{213B37B5-63A1-4F7E-931A-787EA232DA21}.Debug|x64.Build.0 = Debug|x64
+		{213B37B5-63A1-4F7E-931A-787EA232DA21}.Debug|x86.ActiveCfg = Debug|Win32
+		{213B37B5-63A1-4F7E-931A-787EA232DA21}.Debug|x86.Build.0 = Debug|Win32
+		{213B37B5-63A1-4F7E-931A-787EA232DA21}.Release|x64.ActiveCfg = Release|x64
+		{213B37B5-63A1-4F7E-931A-787EA232DA21}.Release|x64.Build.0 = Release|x64
+		{213B37B5-63A1-4F7E-931A-787EA232DA21}.Release|x86.ActiveCfg = Release|Win32
+		{213B37B5-63A1-4F7E-931A-787EA232DA21}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AB914FB-8130-4E9D-985A-C140966BAAF6}
+	EndGlobalSection
+EndGlobal
