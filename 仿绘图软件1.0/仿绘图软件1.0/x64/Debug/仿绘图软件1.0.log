@@ -1,12 +1,2 @@
-﻿  Global.cpp
-D:\CPP_Code\仿绘图软件1.0\仿绘图软件1.0\Global.h(1,1): warning C4828: 文件包含在偏移 0x39f 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-  main.cpp
-D:\CPP_Code\仿绘图软件1.0\仿绘图软件1.0\Global.h(1,1): warning C4828: 文件包含在偏移 0x39f 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-  Point.cpp
-D:\CPP_Code\仿绘图软件1.0\仿绘图软件1.0\Global.h(1,1): warning C4828: 文件包含在偏移 0x39f 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-  Rect.cpp
-D:\CPP_Code\仿绘图软件1.0\仿绘图软件1.0\Global.h(1,1): warning C4828: 文件包含在偏移 0x39f 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-  Tool.cpp
-D:\CPP_Code\仿绘图软件1.0\仿绘图软件1.0\Global.h(1,1): warning C4828: 文件包含在偏移 0x39f 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-  正在生成代码...
+﻿  main.cpp
   仿绘图软件1.0.vcxproj -> D:\CPP_Code\仿绘图软件1.0\x64\Debug\仿绘图软件1.0.exe

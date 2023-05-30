@@ -35,3 +35,4 @@ void keydown(ExMessage& msg);
 
 void Rectangle(ExMessage& msg);//矩形实现
 bool isRange(ExMessage& msg);//确定范围是否在操作区
+void Realize_function(ExMessage& msg);

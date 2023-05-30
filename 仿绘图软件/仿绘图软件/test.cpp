@@ -19,9 +19,14 @@ int main()
 		initDrawMenu();
 		pRect->show();
 		ExMessage msg;
+		
+		BeginBatchDraw();	
 		while (peekmessage(&msg))
 		{
-			pRect->event(msg);
+			
+			cleardevice();
+		
+			pRect->event(msg); 
 		}
 		FlushBatchDraw();
 	}

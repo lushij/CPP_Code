@@ -1,5 +1,6 @@
 #include "Tool.h"
 extern Tool *r;
+
 bool status[8] = { false,false,false, false, false, false, false, false };//开关，false，默认
 void setColor(int x,int y,int mx,int my)
 {
@@ -149,6 +150,35 @@ void color(bool *status)
 		int w = textwidth(txt);
 		int h = textheight(txt);
 		outtextxy((1100 - w) / 2, (100 - h) / 2, txt);
+		/*for (int i = 1; i <= 3; i++)
+		{
+			int tmp = 0;
+			int x = i * 30;
+			if (i == 1)
+			{
+				setfillcolor(BLACK);
+				fillrectangle(400, 0, 400 + x, 30);
+				tmp = 400 + x;
+				cout << tmp << endl;
+			}
+			if (i == 2)
+			{
+				setfillcolor(BLUE);
+				fillrectangle(tmp, 0, tmp + x, 30);
+				tmp = tmp + x;
+				cout << tmp << endl;
+			}
+			else
+			{
+				setfillcolor(RED);
+				fillrectangle(tmp, 0, tmp + x, 30);
+				tmp = tmp + x;
+			}
+
+
+
+		}
+		*/
 	}
 	else
 	{
@@ -227,6 +257,7 @@ void clear(int x,int y,int mx,int my)
 
 void keydown(ExMessage& msg)
 {
+	
 	if (msg.message == WM_LBUTTONDOWN)
 	{
 		if (msg.x >= 0 && msg.x <= 100 && msg.y >= 0 && msg.y <= 100)
@@ -277,8 +308,10 @@ void keydown(ExMessage& msg)
 					status[i] = true;
 				}
 			}
-			Rectangle(msg);//矩形实现
-			/*cout << msg.x << " " << msg.y << endl;*/
+			
+			cout << msg.x << " " << msg.y << endl;
+			
+			
 		}
 		if (msg.x > 400 && msg.x <= 500 && msg.y >= 0 && msg.y <= 100)
 		{
@@ -337,12 +370,10 @@ void keydown(ExMessage& msg)
 
 void Rectangle(ExMessage&msg)//矩形实现
 {
+	r->show();
 	if (isRange(msg))
 	{
-		while (peekmessage(&msg))
-		{
 			r->event(msg);
-		}
 	}
 	
 }
@@ -355,4 +386,44 @@ bool isRange(ExMessage& msg)
 	}
 	return false;
 }
+
+void Realize_function(ExMessage& msg)
+{
+	int tmp=0;
+	for (int i = 0; i < 8; i++)
+	{
+		if (status[i] == true)
+		{
+			tmp = i;
+		}
+	}
+	switch (tmp)
+	{
+	case 0:
+		break;
+	case 1:
+		break;
+	case 2:
+	/*	if (msg.message == WM_RBUTTONDOWN)
+		{
+			achieveRvoke(msg);
+		}*/
+		
+		break;
+	case 3:
+		Rectangle(msg);
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	case 6:
+		break;
+	case 7:
+		break;
+	default:
+		break;
+	}
+}
+
 

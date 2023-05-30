@@ -7,6 +7,7 @@ public:
 	Tool();
 	void show();
 	bool event(ExMessage& msg);
+	void achieve_rvoke(ExMessage& msg);
 private:
 	vector <Rect> rect;//´æ´¢¾ØÐÎµÄµã
 	Point begin;

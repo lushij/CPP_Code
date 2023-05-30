@@ -14,19 +14,16 @@ int main()
 
 	while (1)
 	{
-		r->show();
+		cleardevice(); 
+		Menu();//菜单
 		while (peekmessage(&msg))
 		{
-
-			cleardevice();
-			Menu();//菜单
 			keydown(msg);
+			Realize_function(msg);//功能实现
 			FlushBatchDraw();
 		}
 		
 	}
-
-
 	EndBatchDraw();
 	closegraph();
 }

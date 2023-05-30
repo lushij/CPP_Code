@@ -4,6 +4,8 @@
 
 Tool::Tool()
 {
+	this->preview = false;
+	this->isDown = false;
 }
 
 void Tool::show()
@@ -44,13 +46,14 @@ bool Tool::event(ExMessage& msg)
 			rect.push_back(temp);
 			preview = false;
 		}
-		//if (msg.message == WM_RBUTTONDOWN)
-		//{
-		//	if (!rect.empty())
-		//	{
-		//		rect.pop_back();			//从存储数组中删除掉已经绘制的矩形
-		//	}
-		//}
+		if (msg.message == WM_RBUTTONDOWN)
+		{
+			if (!rect.empty())
+			{
+				rect.pop_back();			//从存储数组中删除掉已经绘制的矩形
+			}
+		}
+		
 		if (isDown == true && msg.message == WM_MOUSEMOVE)
 		{
 			end = { msg.x,msg.y };
@@ -59,3 +62,6 @@ bool Tool::event(ExMessage& msg)
     }
 	return false;
 }
+
+
+

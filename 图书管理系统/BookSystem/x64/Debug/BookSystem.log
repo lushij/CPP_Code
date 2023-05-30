@@ -1,0 +1,11 @@
+﻿  test.cpp
+D:\CPP_Code\图书管理系统\BookSystem\test.cpp(76,2): error C2360: “ch”的初始化操作由“case”标签跳过
+D:\CPP_Code\图书管理系统\BookSystem\test.cpp(72,8): message : 参见“ch”的声明
+D:\CPP_Code\图书管理系统\BookSystem\test.cpp(78,2): error C2360: “ch”的初始化操作由“case”标签跳过
+D:\CPP_Code\图书管理系统\BookSystem\test.cpp(72,8): message : 参见“ch”的声明
+D:\CPP_Code\图书管理系统\BookSystem\test.cpp(80,2): error C2360: “ch”的初始化操作由“case”标签跳过
+D:\CPP_Code\图书管理系统\BookSystem\test.cpp(72,8): message : 参见“ch”的声明
+D:\CPP_Code\图书管理系统\BookSystem\test.cpp(82,2): error C2360: “ch”的初始化操作由“case”标签跳过
+D:\CPP_Code\图书管理系统\BookSystem\test.cpp(72,8): message : 参见“ch”的声明
+D:\CPP_Code\图书管理系统\BookSystem\test.cpp(84,2): error C2360: “ch”的初始化操作由“case”标签跳过
+D:\CPP_Code\图书管理系统\BookSystem\test.cpp(72,8): message : 参见“ch”的声明
