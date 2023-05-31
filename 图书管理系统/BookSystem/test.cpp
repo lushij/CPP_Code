@@ -10,10 +10,11 @@ bool user = false;//注册信息
 class Book
 {
 public:
-	Book(string name,int count)
+	Book(string name,int count,string Isbn)
 	{
 		this->name = name;
 		this->count = count;
+		this->IBSN = Isbn;
 	}
 	void setName(string name)
 	{
@@ -23,11 +24,11 @@ public:
 	{
 		this->count = count;
 	}
-	string getName()
+	string& getName()
 	{
 		return name;
 	}
-	int getCount()
+	int &getCount()
 	{
 		return count;
 	}
@@ -35,7 +36,7 @@ public:
 	{
 		this->IBSN = ibsn;
 	}
-	string getIbsn()
+	string &getIbsn()
 	{
 		return IBSN;
 	}
@@ -46,6 +47,39 @@ private:
 	string IBSN;//编号
 };
 
+class Person
+{
+public:
+	Person(string Pname,int count,string Bname,string data)
+	{
+		this->Bname = Bname;
+		this->count = count;
+		this->Pname = Pname;
+		this->data = data;
+	}
+	string& getBname()
+	{
+		return Bname;
+	}
+	string& getPname()
+	{
+		return Pname;
+	}
+	string& getData()
+	{
+		return data;
+	}
+	int & getCount()
+	{
+		return count;
+	}
+private:
+	string Pname;//人名
+	int count;//数量
+	string Bname;//书名
+	string data;
+};
+
 class Library
 {
 public: 
@@ -54,32 +88,102 @@ public:
 		B.push_back(book);
 	}
 
-	void removeBookByName(const string& ibsn)
+	void removeBookByIbsn(const string& ibsn)
 	{
-		for (auto &v:B)
+		if (!B.empty())
 		{
-			if (v.getIbsn() == ibsn)
+			for (auto& v : B)
 			{
-				B.erase(remove_if(B.begin(), B.end(),
-					[&]( Book& book) { return book.getIbsn() == ibsn; }),
-					B.end());
-			}
+				if (v.getIbsn() == ibsn)
+				{
+					B.erase(remove_if(B.begin(), B.end(),
+						[&](Book& book) { return book.getIbsn() == ibsn; }),
+						B.end());
+				
+				}
 
+			}
+			
+		}
+		else
+		{
+			cout << "库存为0" << endl;
+		}
+		
+	}
+
+	void listBooks() 
+	{
+		if (B.empty())
+		{
+			cout << "库存为0" << endl;
+		}
+		for (auto &b : B)
+		{
+			cout << "书名：" << b.getName() << "\t数量： " << b.getCount() << "\t编号：" << b.getIbsn() << endl;
 		}
 	}
 
-	  void listBooks() const 
-	  {
-		  for (auto &b : B)
-		  {
-			  cout << "书名：" << ;
-		  }
-	  }
+	void seacrchBook(string ISBN)
+	{
+		for (auto& b : B)
+		{
+			if (b.getIbsn() == ISBN)
+			{
+				cout << "书名：" << b.getName() << "\t数量： " << b.getCount() << "\t编号：" << b.getIbsn() << endl;
+			}
+		}
+	}
 
+
+	void borrow(string ISBN)
+	{
+		
+		seacrchBook(ISBN);
+		cout << "是否确认" << endl;
+		string key;
+		cin >> key;
+		if (key == "是")
+		{
+			string m_Pname;
+			string m_Bname;
+			string m_data;
+			int m_count;
+			cout << "请输入[人名，书名，数量，日期（xx.xx.xx）]" << endl;
+			cin >>m_Pname>> m_Bname >> m_count >> m_data;
+			P.push_back({ m_Pname,m_count,m_Bname,m_data });
+		}
+	}
+	void Return(string ISBN)
+	{
+		if (!P.empty())
+		{
+			for (auto& v : P)
+			{
+				if (v.getPname() == ISBN)
+				{
+					P.erase(remove_if(P.begin(), P.end(),
+						[&](Person& p) { return p.getPname() == ISBN; }),
+						P.end());
+				}
+
+				else
+				{
+					cout << "未找到" << endl;
+				}
+
+			}
+		}
+		else
+		{
+			cout << "没有要归还的书籍" << endl;
+		}
+	}
 private:
 	vector<Book> B;
-}
-
+	vector<Person> P;
+};
+Library library;
 
 
 void menu()
@@ -100,8 +204,43 @@ void addBook()
 {
 	string ch;
 	int num;
-	cin >> ch >> num;
-	book.push_back(&num,&ch);
+	string Isbn;
+	cin >> ch >> num>>Isbn;
+	library.addBook({ch,num,Isbn});
+	cout << "录入成功" << endl;
+}
+
+void showBook()
+{
+	library.listBooks();
+}
+
+void RomveBook()
+{
+	string nAme;
+	cin >> nAme;
+	library.removeBookByIbsn(nAme);
+	cout << "删除成功" << endl;
+}
+void SeacrchBook()
+{
+	string ISBN;
+	cin >> ISBN;
+	library.seacrchBook(ISBN);
+}
+void Borrow()
+{
+	string ISBN;
+	cin >> ISBN;
+	library.borrow(ISBN);
+	cout << "借阅成功" << endl;
+}
+void returnBook()
+{
+	string ISBN;
+	cin >> ISBN;
+	library.Return(ISBN);
+	cout << "归还成功" << endl;
 }
 void keyDown()
 {
@@ -113,23 +252,32 @@ void keyDown()
 		exit(0);
 		break;
 	case 1:
-		cout << "请输入图书信息（书名，数量）"<<endl;
+		cout << "请输入图书信息（书名，数量,编号）"<<endl;
 		addBook();
 		break;
 	case 2:
+		showBook();
 		break;
 	case 3:
+		cout << "请输入要删除书籍的编号: ";
+		RomveBook();
 		break;
 	case 4:
+		cout << "请输入要查找书籍的编号: ";
+		SeacrchBook();
 		break;
 	case 5:
+		cout << "请输入要借阅图书的编号： ";
+		Borrow();
 		break;
 	case 6:
+		cout << "请输入要归还人的姓名： ";
+		returnBook();
 		break;
 
 	}
 }
-
+//阿甘正传 10 101
 void Register()
 {
 	if (user == false)
@@ -156,20 +304,17 @@ void Register()
 }
 int main()
 {
-	
 	Register();
 	if (user == true)
 	{
-		menu();
 		while (1)
 		{
+			menu();
 			keyDown();
 			system("pause");
 			system("cls");
 		}
+		
 	}
-	
-	
-
 	return 0;
 }
