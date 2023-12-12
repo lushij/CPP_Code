@@ -129,6 +129,8 @@ int keyDown(HWND hwnd)
 			if (count == 1)
 			{
 				MessageBox(hwnd, "平局", "gameover", MB_OK);
+				
+				//MessageBox(hwnd, "平局", "gameover", MB_YESNO);
 				return 1;
 			}
 			
@@ -169,11 +171,7 @@ int main()
 	loadResource();
 	HWND hwnd=initgraph(300, 300);
 	//drawMap();
-
 	keyDown(hwnd);
-
-
-
 	closegraph();
 	return 0;
 }
