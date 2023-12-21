@@ -92,6 +92,59 @@ void saveFile(list* headNode, const char* fileURL)
 	fclose(fp);
 }
 
+void deleteContact(list*& Head, const char* nameToDelete) {
+	list* current = Head->next;
+	list* prev = Head;
+	while (current != NULL) {
+		if (strcmp(current->data.name, nameToDelete) == 0) {
+			prev->next = current->next;
+			delete current;
+			cout << "联系人已删除" << endl;
+			return;
+		}
+		prev = current;
+		current = current->next;
+	}
+	cout << "未找到该联系人" << endl;
+}
+
+void searchContact(list* Head, const char* nameToSearch) {
+	list* current = Head->next;
+	while (current != NULL) {
+		if (strcmp(current->data.name, nameToSearch) == 0) {
+			cout << "联系人信息：" << endl;
+			cout << current->data.name << "\t" << current->data.Phone << "\t" << current->data.Address << endl;
+			return;
+		}
+		current = current->next;
+	}
+	cout << "未找到该联系人" << endl;
+}
+void updateContact(list* Head, const char* nameToUpdate, const PeopleTel& newData) {
+	list* current = Head->next;
+	while (current != NULL) {
+		if (strcmp(current->data.name, nameToUpdate) == 0) {
+			current->data = newData;
+			cout << "联系人信息已更新" << endl;
+			return;
+		}
+		current = current->next;
+	}
+	cout << "未找到该联系人" << endl;
+}
+
+void clearContacts(list*& Head) {
+	list* current = Head->next;
+	list* nextNode;
+	while (current != NULL) {
+		nextNode = current->next;
+		delete current;
+		current = nextNode;
+	}
+	Head->next = NULL;
+	cout << "所有联系人已清空" << endl;
+}
+
 //菜单
 void menu()
 {
@@ -128,19 +181,29 @@ void keyDown(list* &Headlist)
 		cout << "添加成功" << endl;
 		break;
 	case 2://2.删除联系人
+		cout << "请输入要删除的联系人姓名：";
+		cin >> Peo.name;
+		deleteContact(Headlist, Peo.name);
 		saveFile(Headlist, "通讯录文件.txt");
 		break;
 	case 3://3.显示联系人
-	
 		insearch(Headlist);
-
 		break;
 	case 4://4.查找联系人
+		cout << "请输入要查找的联系人姓名：";
+		cin >> Peo.name;
+		searchContact(Headlist, Peo.name);
 		break;
 	case 5://5.修改联系人
+		cout << "请输入要修改的联系人姓名：";
+		cin >> Peo.name;
+		cout << "请输入新的联系人信息：姓名 电话 联系地址" << endl;
+		cin >> Peo.name >> Peo.Phone >> Peo.Address;
+		updateContact(Headlist, Peo.name, Peo);
 		saveFile(Headlist, "通讯录文件.txt");
 		break;
 	case 6://6.清空联系人
+		clearContacts(Headlist);
 		saveFile(Headlist, "通讯录文件.txt");
 		break;
 	}
@@ -157,7 +220,5 @@ int main()
 		system("pause");
 		system("cls");
 	}
-	
-
 	return 0;
 }

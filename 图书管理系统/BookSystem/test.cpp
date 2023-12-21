@@ -1,16 +1,16 @@
-
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<iostream>
 #include <cstring>
 #include <algorithm>
 #include<string>
 #include<vector>
+#include<fstream>
 using namespace std;
 bool user = false;//注册信息
 class Book
 {
 public:
-	Book(string name,int count,string Isbn)
+	Book(string name, int count, string Isbn)
 	{
 		this->name = name;
 		this->count = count;
@@ -28,29 +28,27 @@ public:
 	{
 		return name;
 	}
-	int &getCount()
+	int& getCount()
 	{
 		return count;
 	}
-	void setIbsn(string&ibsn)
+	void setIbsn(string& ibsn)
 	{
 		this->IBSN = ibsn;
 	}
-	string &getIbsn()
+	string& getIbsn()
 	{
 		return IBSN;
 	}
-
 private:
 	string name;//书名
 	int count;//数量
 	string IBSN;//编号
 };
-
 class Person
 {
 public:
-	Person(string Pname,int count,string Bname,string data)
+	Person(string Pname, int count, string Bname, string data)
 	{
 		this->Bname = Bname;
 		this->count = count;
@@ -69,7 +67,7 @@ public:
 	{
 		return data;
 	}
-	int & getCount()
+	int& getCount()
 	{
 		return count;
 	}
@@ -79,15 +77,13 @@ private:
 	string Bname;//书名
 	string data;
 };
-
 class Library
 {
-public: 
+public:
 	void addBook(const Book& book)
 	{
 		B.push_back(book);
 	}
-
 	void removeBookByIbsn(const string& ibsn)
 	{
 		if (!B.empty())
@@ -99,31 +95,26 @@ public:
 					B.erase(remove_if(B.begin(), B.end(),
 						[&](Book& book) { return book.getIbsn() == ibsn; }),
 						B.end());
-				
 				}
-
 			}
-			
 		}
 		else
 		{
 			cout << "库存为0" << endl;
 		}
-		
-	}
 
-	void listBooks() 
+	}
+	void listBooks()
 	{
 		if (B.empty())
 		{
 			cout << "库存为0" << endl;
 		}
-		for (auto &b : B)
+		for (auto& b : B)
 		{
 			cout << "书名：" << b.getName() << "\t数量： " << b.getCount() << "\t编号：" << b.getIbsn() << endl;
 		}
 	}
-
 	void seacrchBook(string ISBN)
 	{
 		for (auto& b : B)
@@ -134,11 +125,8 @@ public:
 			}
 		}
 	}
-
-
 	void borrow(string ISBN)
 	{
-		
 		seacrchBook(ISBN);
 		cout << "是否确认" << endl;
 		string key;
@@ -150,7 +138,7 @@ public:
 			string m_data;
 			int m_count;
 			cout << "请输入[人名，书名，数量，日期（xx.xx.xx）]" << endl;
-			cin >>m_Pname>> m_Bname >> m_count >> m_data;
+			cin >> m_Pname >> m_Bname >> m_count >> m_data;
 			P.push_back({ m_Pname,m_count,m_Bname,m_data });
 		}
 	}
@@ -166,12 +154,10 @@ public:
 						[&](Person& p) { return p.getPname() == ISBN; }),
 						P.end());
 				}
-
 				else
 				{
 					cout << "未找到" << endl;
 				}
-
 			}
 		}
 		else
@@ -179,13 +165,27 @@ public:
 			cout << "没有要归还的书籍" << endl;
 		}
 	}
+	void saveToFile(const string& filename)
+	{
+		ofstream outputFile(filename);
+		// Save book information
+		for (auto& book : B)
+		{
+			outputFile << "Book|" << book.getName() << "|" << book.getCount() << "|" << book.getIbsn() << endl;
+		}
+		// Save person information
+		for (auto& person : P)
+		{
+			outputFile << "Person|" << person.getPname() << "|" << person.getCount() << "|" << person.getBname() << "|" << person.getData() << endl;
+		}
+		outputFile.close();
+		cout << "Data saved to file: " << filename << endl;
+	}
 private:
 	vector<Book> B;
 	vector<Person> P;
 };
-Library library;
-
-
+Library library;//全局变量
 void menu()
 {
 	printf("--------------【图书管理系统】---------------\n");
@@ -196,25 +196,23 @@ void menu()
 	printf("\t\t4.查找图书\n");
 	printf("\t\t5.借阅图书\n");
 	printf("\t\t6.归还图书\n");
+	printf("\t\t7.是否保存\n");
 	printf("--------------------------------------------\n");
-	printf("请输入你选择(0-5):");
+	printf("请输入你选择(0-7):");
 }
-
 void addBook()
 {
 	string ch;
 	int num;
 	string Isbn;
-	cin >> ch >> num>>Isbn;
-	library.addBook({ch,num,Isbn});
+	cin >> ch >> num >> Isbn;
+	library.addBook({ ch,num,Isbn });
 	cout << "录入成功" << endl;
 }
-
 void showBook()
 {
 	library.listBooks();
 }
-
 void RomveBook()
 {
 	string nAme;
@@ -252,7 +250,7 @@ void keyDown()
 		exit(0);
 		break;
 	case 1:
-		cout << "请输入图书信息（书名，数量,编号）"<<endl;
+		cout << "请输入图书信息（书名，数量,编号）" << endl;
 		addBook();
 		break;
 	case 2:
@@ -274,6 +272,9 @@ void keyDown()
 		cout << "请输入要归还人的姓名： ";
 		returnBook();
 		break;
+	case 7:
+		library.saveToFile("save.txt");
+		break;
 
 	}
 }
@@ -292,13 +293,11 @@ void Register()
 			user = true;
 			system("pause");
 			system("cls");
-
 		}
 		else
 		{
 			cout << "未注册，进入失败" << endl;
 			exit(0);
-
 		}
 	}
 }
@@ -314,7 +313,6 @@ int main()
 			system("pause");
 			system("cls");
 		}
-		
 	}
 	return 0;
 }
