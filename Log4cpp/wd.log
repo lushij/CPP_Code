@@ -1,0 +1,16 @@
+2022-06-06 09:29:55,522 MyCategory [ERROR] [TestMylogger.cc:test:13] this is an error message!
+2022-06-06 09:29:55,522 MyCategory [WARN] this is a warn message!
+2022-06-06 09:29:55,522 MyCategory [INFO] this is an info message!
+2022-06-06 09:29:55,522 MyCategory [DEBUG] this is a debug message!
+2022-06-06 10:17:41,647 MyCategory [DEBUG] [TestMylogger.cc:test4:44] this is a error message! number = 10, str = hello,world
+2022-06-06 10:17:41,647 MyCategory [ERROR] [TestMylogger.cc:test4:45] this is a error message! number = 10, str = hello,world
+2022-06-06 10:17:41,647 MyCategory [WARN] [TestMylogger.cc:test4:46] this is a error message!
+2022-06-06 10:17:41,647 MyCategory [INFO] [TestMylogger.cc:test4:47] this is a error message!
+2022-06-06 10:17:41,647 MyCategory [DEBUG] [TestMylogger.cc:test4:48] this is a error message!
+2022-06-06 10:17:51,257 MyCategory [DEBUG] [TestMylogger.cc:test4:44] this is a error message! number = 10, str = hello,world
+2022-06-06 10:17:51,258 MyCategory [ERROR] [TestMylogger.cc:test4:45] this is a error message! number = 10, str = hello,world
+2022-06-06 10:17:51,258 MyCategory [WARN] [TestMylogger.cc:test4:46] this is a error message!
+2022-06-06 10:17:51,258 MyCategory [INFO] [TestMylogger.cc:test4:47] this is a error message!
+2022-06-06 10:17:51,258 MyCategory [DEBUG] [TestMylogger.cc:test4:48] this is a error message!
+2022-06-06 10:19:12,610 MyCategory [ERROR] [TestMylogger.cc:test4:52] hello, world, hello,world 10
+
